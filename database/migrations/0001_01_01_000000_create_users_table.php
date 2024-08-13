@@ -16,9 +16,22 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('email')->unique();
             $table->string('password');
-            $table->boolean('activo')->default(false);
+            $table->boolean('activo')->default(true);
             $table->rememberToken();
             $table->timestamps();
+        });
+
+        Schema::create('proyectos', function (Blueprint $table){
+            $table->id();
+            $table->string('nombre');
+            $table->string('fechaInicio');
+            $table->boolean('estado');
+            $table->string('responsable');
+            $table->string('monto');
+            $table->string('created_by')->default('1');
+            $table->rememberToken();
+            $table->timestamps();
+
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -45,5 +58,6 @@ return new class extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('proyectos');
     }
 };

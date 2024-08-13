@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProyectoController;
+use App\Models\proyectoModel;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
@@ -23,3 +25,19 @@ Route::get('/backoffice', function(){
     }
     return view('backoffice.dashboard', ['user' => $user]);
 })->name('backoffice.dashboard');
+
+/* Route::get('/posts', [ProyectoController::class, 'index']);
+
+Route::get('/posts/crear', [ProyectoController::class, 'create']);
+
+Route::post('/posts', [ProyectoController::class, 'store']);
+
+Route::get('/posts/{id}', [ProyectoController::class, 'show']);
+
+Route::get('/posts/{post}/edit', [ProyectoController::class, 'edit']);
+
+Route::get('/uf', [ProyectoController::class, 'showUf']);
+
+Route::put('/posts/{post}', [ProyectoController::class, 'update']);
+
+Route::delete('/posts/{post}', [ProyectoController::class, 'destroy']); */

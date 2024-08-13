@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" class="style">
+    <script type="text/javascript" src="{{ asset('js/script.js') }}" ></script>
 </head>
 <body>
-    <h1>Inicio de sesion</h1>
+<div class="login-page">
+    <h1>Inicio de Sesión</h1>
     <!--- errores ---->
     @if ($errors->any())
     <ul>
@@ -15,13 +18,17 @@
         @endforeach
     </ul>
     @endif
-    <form action="{{ Route('usuario.validar') }}" method="POST">
-        @csrf
-        <input type="text" name="email" placeholder="Ingresar Email"> <br>
-        <input type="password" name="password" placeholder="Ingresar Contraseña"> <br>
-        <button type="submit">Ingresar</button>
+
+  <div class="form">
+    <form class="login-form" action="{{ Route('usuario.validar') }}" method="POST">
+    @csrf
+      <input type="text" name="email" placeholder="Ingrese email"/>
+      <input type="password" name="password" placeholder="Ingrese password"/>
+      <button>login</button>
+      <p class="message">Not registered? <a href="{{ Route('usuario.registrar') }}">Create an account</a></p>
     </form>
-    <hr>
-    Si no tiene una cuenta, entonces<a href="{{ Route('usuario.registrar') }}"> haga click aqui</a>
+  </div>
+</div>
 </body>
 </html>
+

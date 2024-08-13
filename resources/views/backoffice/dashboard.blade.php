@@ -6,9 +6,10 @@
     <title>Dashboard del backofficet</title>
 </head>
 <body>
-    {{$user}}<hr>
+    <h2>Datos de usuario logeado</h2><br>
     <p>Nombre : {{$user->nombre}}</p>
     <p>Email : {{$user->email}}</p>
+    <p>Estado : {{$user->activo}}</p>
     <hr>
     <form action="{{ Route('usuario.logout') }}" method="POST">
         @csrf

@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" class="style">
+    <script type="text/javascript" src="{{ asset('js/script.js') }}" ></script>
     <title>Crear usuario</title>
 </head>
 <body>
-    <h1>Inicio de sesion</h1>
+<div class="login-page">
+    <h1>Registro de Usuario</h1>
     <!--- errores ---->
     @if ($errors->any())
     <ul>
@@ -15,8 +18,9 @@
         @endforeach
     </ul>
     @endif
-    <form action="{{ Route('usuario.registrar') }}" method="POST">
-        @csrf
+    <div class="form">
+    <form class="login-form" action="{{ Route('usuario.registrar') }}" method="POST">
+    @csrf
         @method('POST')
         <input type="text" name="nombre" placeholder="Ingresar Nombre"> <br>
         <input type="text" name="email" placeholder="Ingresar Email"> <br>
@@ -24,9 +28,9 @@
         <input type="password" name="rePassword" placeholder="Ingresar nuevamente su Contraseña"> <br>
         <input type="password" name="dayCode" placeholder="Ingresar codigo del dia"> <br>
 
-        <button type="submit">Ingresar</button>
+        <button>Register</button>
     </form>
     <hr>
-    Si usted tiene una cuenta, entonces<a href="/login"> inicie sesion</a>
+    <p class="message">Si usted tiene una cuenta, entonces<a href="/login"> inicie sesion</a></p>
 </body>
 </html>
